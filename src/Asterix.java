@@ -1,6 +1,5 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.ArrayList;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Asterix {
     private Maze maze;
@@ -12,8 +11,12 @@ public class Asterix {
         HashSet<Node> closedSet = new HashSet<Node>();
         HashSet<Node> openSet = new HashSet<Node>();
         HashMap<Node, Node> parent = new HashMap<Node, Node>();
+
+        Dictionary<Node, Integer> f = new Hashtable<Node, Integer>(); // Node is the Key and the value is the distance
+        Dictionary<Node, Integer> g = new Hashtable<Node, Integer>(); // Node is the Key and the value is the distance
+
         while (!openSet.isEmpty()) {
-            Node current = getNodeWithLowestFValue();
+            Node current = getNodeWithLowestFValue(openSet);
             if (current.equals(maze.getEnd())) {
                 return reconstructPath(parent, current);
             }
@@ -39,13 +42,18 @@ public class Asterix {
         return new ArrayList<Node>();
     }
 
-    private int dist_between(Node current, Node neighbour) {
-        // TODO
-        return 0;
+    private int dist_between(Node current, Node neighbour)
+    {
+        return Math.abs(current.x - neighbour.x) + Math.abs(current.y - neighbour.y);
     }
-    private ArrayList<Node> neighbourNodes(Node current) {
-        // TODO
+    private ArrayList<Node> neighbourNodes(Node current)
+    {
         ArrayList<Node> neighbours = new ArrayList<>();
+
+        neighbours.add(new Node(current.x, current.y - 1));
+        neighbours.add(new Node(current.x, current.y + 1));
+        neighbours.add(new Node(current.x - 1, current.y));
+        neighbours.add(new Node(current.x + 1, current.y));
 
         return neighbours;
     }
@@ -55,21 +63,27 @@ public class Asterix {
         return new ArrayList<Node>();
     }
 
-    private Node getNodeWithLowestFValue() {
-        // TODO
-        return new Node(0, 0);
+    private Node getNodeWithLowestFValue(HashSet<Node> openSet)
+    {
+        Node result = null;
+        int f = 0, f_old = -1;
+
+        for(Node node : openSet)
+        {
+            f = g(node) + h(node);
+
+            if(f < f_old || f_old < 0)
+                result = node;
+
+            f_old = f;
+        }
+
+        return result;
     }
 
     private boolean is_goal(Node position)
     {
         return (position.x == maze.getEnd().x) && (position.y == maze.getEnd().y);
-    }
-
-    private int g(Node position)
-    {
-        Node start = maze.getStart();
-
-        return Math.abs(start.x - position.x) + Math.abs(start.y - position.y);
     }
 
     private int h(Node position)

@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="376a6b5a-7afe-4498-bab3-e19492ba81f9" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/src/Asterix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/si-lab.iml" beforeDir="false" afterPath="$PROJECT_DIR$/si-lab.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Asterix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Asterix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Maze.java" afterDir="false" />
     </list>
+    <list id="db9b8add-17b4-4114-a1a3-cca28ef2bbf2" name="Changes by Simon" comment="" />
     <list id="20a8ff6e-d6d8-4cd8-a469-2872af6691fa" name="Changes by SImon" comment="" />
-    <list id="db9b8add-17b4-4114-a1a3-cca28ef2bbf2" name="Changes by Simon" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Maze.java" afterDir="false" />
-    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,18 +26,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/Maze.java">
-      <ranges>
-        <range start1="8" end1="8" start2="8" end2="15" changelist="376a6b5a-7afe-4498-bab3-e19492ba81f9" />
-        <range start1="9" end1="9" start2="16" end2="20" changelist="db9b8add-17b4-4114-a1a3-cca28ef2bbf2" />
-        <range start1="60" end1="60" start2="71" end2="72" changelist="db9b8add-17b4-4114-a1a3-cca28ef2bbf2" />
-        <range start1="61" end1="61" start2="73" end2="74" changelist="376a6b5a-7afe-4498-bab3-e19492ba81f9" />
-        <range start1="72" end1="72" start2="85" end2="86" changelist="376a6b5a-7afe-4498-bab3-e19492ba81f9" />
-        <range start1="86" end1="86" start2="100" end2="114" changelist="376a6b5a-7afe-4498-bab3-e19492ba81f9" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -57,13 +37,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/JOsus/OneDrive/Dokumenty/GitHub/si-lab&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/JOsus/OneDrive/Dokumenty/GitHub/si-lab",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "editor.preferences.appearance",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -72,6 +59,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1678356264436</updated>
+      <workItem from="1678978451803" duration="3215000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1678357914834</created>
@@ -82,6 +70,20 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
