@@ -7,6 +7,17 @@ public class Maze {
     private int columns;
     private double percentage;
 
+    private Node start, end;
+    
+    public Node getStart()
+    {
+        return start;
+    }
+
+    public Node getEnd()
+    {
+        return end;
+    }
 
     public Maze(int rows, int columns, double percentage) {
         this.maze = new String[rows][columns];
@@ -58,7 +69,9 @@ public class Maze {
             if(maze[randRow][randCol] == " ") // in this case the space is empty -> we can put obstical inside
             {
                 maze[randRow][randCol] = "I";
+
                 obstaclePut = true;
+                start = new Node(randRow, randCol);
             }
         } while(!obstaclePut);
         obstaclePut = false;
@@ -70,6 +83,7 @@ public class Maze {
             {
                 maze[randRow][randCol] = "G";
                 obstaclePut = true;
+                end = new Node(randRow, randCol);
             }
         } while(!obstaclePut);
     }
@@ -83,4 +97,18 @@ public class Maze {
         }
         return output;
     }
+}
+
+class Node
+{
+    public Node(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int x;
+    public int y;
+
+
+
 }
