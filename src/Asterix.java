@@ -1,14 +1,13 @@
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
-import java.math;
+import java.util.ArrayList;
 
 public class Asterix {
     private Maze maze;
     public Asterix(Maze maze) {
         this.maze = maze;
     }
-    public List<Node> asterix(Maze maze)
+    public ArrayList<Node> asterix(Maze maze)
     {
         HashSet<Node> closedSet = new HashSet<Node>();
         HashSet<Node> openSet = new HashSet<Node>();
@@ -20,24 +19,44 @@ public class Asterix {
             }
             openSet.remove(current);
             closedSet.add(current);
-            for (Node neighbour: neighbourNodes()) {
-
+            for (Node neighbour: neighbourNodes(current)) {
+                if (closedSet.contains(neighbour)) {
+                    continue;
+                }
+                int tentative_g = g(current) + dist_between(current, neighbour);
+                if(!openSet.contains(neighbour) || tentative_g < g(neighbour)) {
+                    parent.put(neighbour, current);
+                    // TODO
+                    // g =
+                    // f =
+                    if (!openSet.contains(neighbour)) {
+                        openSet.add(neighbour);
+                    }
+                }
             }
         }
-
-
-        return new List<Node>();
+        // return failure
+        return new ArrayList<Node>();
     }
 
-    private List<Node> neighbourNodes(Node current) {
-        List<Node> neighbours
+    private int dist_between(Node current, Node neighbour) {
+        // TODO
+        return 0;
+    }
+    private ArrayList<Node> neighbourNodes(Node current) {
+        // TODO
+        ArrayList<Node> neighbours = new ArrayList<>();
+
+        return neighbours;
     }
 
-    private List<Node> reconstructPath(HashMap<Node, Node> parent, Node current) {
-        return new List<Node>();
+    private ArrayList<Node> reconstructPath(HashMap<Node, Node> parent, Node current) {
+        // TODO
+        return new ArrayList<Node>();
     }
 
     private Node getNodeWithLowestFValue() {
+        // TODO
         return new Node(0, 0);
     }
 
