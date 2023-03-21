@@ -3,8 +3,8 @@ import java.util.Random;
 
 public class Maze {
     private String[][] maze;
-    private int rows;
-    private int columns;
+    public int rows;
+    public int columns;
     private double percentage;
 
     private Node start, end;
@@ -89,6 +89,11 @@ public class Maze {
     }
 
 
+    public void setNode(Node node, String obstacle)
+    {
+        this.maze[node.row][node.column] = obstacle;
+    }
+
     @Override
     public String toString() {
         String output ="";
@@ -101,14 +106,11 @@ public class Maze {
 
 class Node
 {
-    public Node(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Node(int row, int column) {
+        this.row = row;
+        this.column = column;
     }
 
-    public int x;
-    public int y;
-
-
-
+    public int row;
+    public int column;
 }
