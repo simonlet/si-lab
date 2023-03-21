@@ -3,18 +3,18 @@ import java.util.*;
 
 public class Asterix {
     private Maze maze;
+    private HashSet<Node> closedSet = new HashSet<Node>();
+    private HashSet<Node> openSet = new HashSet<Node>();
+    private HashMap<Node, Node> parent = new HashMap<Node, Node>();
+
+    private Dictionary<Node, Integer> f = new Hashtable<Node, Integer>(); // Node is the Key and the value is the distance
+    private Dictionary<Node, Integer> g = new Hashtable<Node, Integer>(); // Node is the Key and the value is the distance
+
     public Asterix(Maze maze) {
         this.maze = maze;
     }
-    public ArrayList<Node> asterix(Maze maze)
+    public ArrayList<Node> asterix()
     {
-        HashSet<Node> closedSet = new HashSet<Node>();
-        HashSet<Node> openSet = new HashSet<Node>();
-        HashMap<Node, Node> parent = new HashMap<Node, Node>();
-
-        Dictionary<Node, Integer> f = new Hashtable<Node, Integer>(); // Node is the Key and the value is the distance
-        Dictionary<Node, Integer> g = new Hashtable<Node, Integer>(); // Node is the Key and the value is the distance
-
         while (!openSet.isEmpty()) {
             Node current = getNodeWithLowestFValue(openSet);
             if (current.equals(maze.getEnd())) {
@@ -26,8 +26,8 @@ public class Asterix {
                 if (closedSet.contains(neighbour)) {
                     continue;
                 }
-                int tentative_g = g(current) + dist_between(current, neighbour);
-                if(!openSet.contains(neighbour) || tentative_g < g(neighbour)) {
+                int tentative_g = g.get(current) + dist_between(current, neighbour);
+                if(!openSet.contains(neighbour) || tentative_g < g.get(neighbour)) {
                     parent.put(neighbour, current);
                     // TODO
                     // g =
@@ -66,16 +66,16 @@ public class Asterix {
     private Node getNodeWithLowestFValue(HashSet<Node> openSet)
     {
         Node result = null;
-        int f = 0, f_old = -1;
+        int current_f = 0, f_old = -1;
 
         for(Node node : openSet)
         {
-            f = g(node) + h(node);
+            current_f = g.get(node) + h(node);
 
-            if(f < f_old || f_old < 0)
+            if(current_f < f_old || f_old < 0)
                 result = node;
 
-            f_old = f;
+            f_old = current_f;
         }
 
         return result;
