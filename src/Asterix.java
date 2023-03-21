@@ -20,14 +20,14 @@ public class Asterix {
         openSet.add(start);
 
         g.put(start, 0);
-        f.put(start, g.get(start).intValue() + h(start));
+        f.put(start, g.get(start) + h(start));
 
         while (!openSet.isEmpty())
         {
-            System.out.println(openSet);
             Node current = getNodeWithLowestFValue(openSet);
 
-            if (current.equals(maze.getEnd())) {
+            if (is_goal(current))
+            {
                 return reconstructPath(parent, current);
             }
 
@@ -45,7 +45,7 @@ public class Asterix {
                 {
                     parent.put(neighbour, current);
                     g.put(neighbour, tentative_g);
-                    f.put(neighbour, g.get(neighbour).intValue() + h(neighbour));
+                    f.put(neighbour, g.get(neighbour) + h(neighbour));
 
                     if (!openSet.contains(neighbour)) {
                         openSet.add(neighbour);
@@ -53,7 +53,6 @@ public class Asterix {
                 }
             }
         }
-        // return failure
         return new ArrayList<Node>();
     }
 
@@ -77,13 +76,18 @@ public class Asterix {
         return neighbours;
     }
 
-    private ArrayList<Node> reconstructPath(HashMap<Node, Node> parent, Node current) {
-        // TODO
-        while(current!=maze.getStart()){
+    private ArrayList<Node> reconstructPath(HashMap<Node, Node> parent, Node current)
+    {
+        var result = new ArrayList<Node>();
+        current=parent.get(current);
+        while(current!=maze.getStart())
+        {
             maze.setNode(current, "+");
             current = parent.get(current);
+            result.add(current);
         }
-        return new ArrayList<Node>();
+
+        return result;
     }
 
     private Node getNodeWithLowestFValue(HashSet<Node> openSet)
@@ -106,7 +110,7 @@ public class Asterix {
 
     private boolean is_goal(Node position)
     {
-        return (position.row == maze.getEnd().row) && (position.column == maze.getEnd().column);
+        return position.row == maze.getEnd().row && position.column == maze.getEnd().column;
     }
 
     private int h(Node position)
@@ -114,5 +118,4 @@ public class Asterix {
         Node end = maze.getEnd();
         return Math.abs(position.row - end.row) + Math.abs(position.column - end.column);
     }
-
 }

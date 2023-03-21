@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 
 public class Maze {
@@ -109,6 +110,16 @@ class Node
     public Node(int row, int column) {
         this.row = row;
         this.column = column;
+    }
+
+    public boolean equals(Node other) {
+        return this.row == other.row && this.column == other.column;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "(" + row + ", " + column + ")";
     }
 
     public int row;
